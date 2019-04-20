@@ -4,7 +4,7 @@
 #
 Name     : perl-Devel-Size
 Version  : 0.82
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.82.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.82.tar.gz
 Summary  : unknown
@@ -22,6 +22,7 @@ Summary: dev components for the perl-Devel-Size package.
 Group: Development
 Requires: perl-Devel-Size-lib = %{version}-%{release}
 Provides: perl-Devel-Size-devel = %{version}-%{release}
+Requires: perl-Devel-Size = %{version}-%{release}
 
 %description dev
 dev components for the perl-Devel-Size package.
