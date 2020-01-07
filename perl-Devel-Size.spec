@@ -4,13 +4,13 @@
 #
 Name     : perl-Devel-Size
 Version  : 0.83
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.83.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.83.tar.gz
 Summary  : unknown
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
-Requires: perl-Devel-Size-lib = %{version}-%{release}
+Requires: perl-Devel-Size-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -20,7 +20,6 @@ Devel::Size - Perl extension for finding the memory usage of Perl variables
 %package dev
 Summary: dev components for the perl-Devel-Size package.
 Group: Development
-Requires: perl-Devel-Size-lib = %{version}-%{release}
 Provides: perl-Devel-Size-devel = %{version}-%{release}
 Requires: perl-Devel-Size = %{version}-%{release}
 
@@ -28,22 +27,24 @@ Requires: perl-Devel-Size = %{version}-%{release}
 dev components for the perl-Devel-Size package.
 
 
-%package lib
-Summary: lib components for the perl-Devel-Size package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-Devel-Size package.
+Group: Default
+Requires: perl-Devel-Size = %{version}-%{release}
 
-%description lib
-lib components for the perl-Devel-Size package.
+%description perl
+perl components for the perl-Devel-Size package.
 
 
 %prep
 %setup -q -n Devel-Size-0.83
+cd %{_builddir}/Devel-Size-0.83
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -53,7 +54,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -73,12 +74,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Devel/Size.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Devel::Size.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Devel/Size/Size.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Devel/Size.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Devel/Size/Size.so
