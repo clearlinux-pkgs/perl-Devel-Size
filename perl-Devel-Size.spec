@@ -7,7 +7,7 @@
 #
 Name     : perl-Devel-Size
 Version  : 0.84
-Release  : 30
+Release  : 31
 URL      : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.84.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NW/NWCLARK/Devel-Size-0.84.tar.gz
 Summary  : unknown
